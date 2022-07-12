@@ -1,0 +1,54 @@
+
+spring:
+  application:
+    name: todo
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/todo
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: 'create'
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    jpa:
+      repositories:
+        enabled: true
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#
+#        format_sql: true
+#    show-sql: true
+#    defer-datasource-initialization: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  sql:
+    init:
+      mode: always
+
+server:
+  port: 8080
+  logging:
+    level:
+      org:
+        springframework:
+          web: DEBUG
+        hibernate: ERROR
+hibernate:
+  dialect:
+    org:
+      hibernate:
+        dialect: MySQL5Dialect
